@@ -293,6 +293,8 @@ func ParseMetric(packet []byte) (*UDPMetric, error) {
 	switch typeChunk[0] {
 	case 'c':
 		ret.Type = "counter"
+	case 'd':  // consider distributions type as histogram
+		ret.Type = "histogram"
 	case 'g':
 		ret.Type = "gauge"
 	case 'h':
